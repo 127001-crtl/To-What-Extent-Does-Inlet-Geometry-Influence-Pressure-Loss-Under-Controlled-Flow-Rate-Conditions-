@@ -26,30 +26,33 @@ The study compares a few inlet shapes, changing one feature at a time (lip shape
 3. **Check the results.** Run a mesh test (coarse, medium, fine), watch convergence of the loss value, and look at velocity and pressure along the inlet wall.
 
 ## What is measured
-
-The main result is total-pressure loss from the freestream (station 0) to the fan face (station 2):
-
-```
-Δp_t   = p_t,0 − p̄_t,2          total-pressure loss
-Π_rec  = p̄_t,2 / p_t,0          total-pressure recovery (1 means no loss)
-q_0    = ½ ρ_0 U_0²             freestream dynamic pressure
-Λ_t    = Δp_t / q_0             normalised loss, for comparing different speeds
-```
-
-p̄_t,2 is the mass-flow-weighted mean total pressure over the fan-face plane:
-
-```
-p̄_t = ∫ p_t ρ u_n dA / ∫ ρ u_n dA
-```
-
+ 
+The main result is the total-pressure loss from the freestream (station 0) to the fan face (station 2). Here $p_{t,0}$ is the freestream total pressure and $\overline{p}_{t,2}^{\,m}$ is the mass-flow-weighted mean total pressure at the fan face.
+ 
+Total-pressure loss and total-pressure recovery ($\Pi_{t,\mathrm{rec}} = 1$ means no loss):
+ 
+$$\Delta p_t = p_{t,0} - \overline{p}_{t,2}^{\,m}, \qquad \Pi_{t,\mathrm{rec}} = \frac{\overline{p}_{t,2}^{\,m}}{p_{t,0}}$$
+ 
+The mass-flow-weighted mean over the fan-face plane $A$ is:
+ 
+$$\overline{p}_{t}^{\,m} = \frac{\displaystyle\int_A p_t\,\rho u_n\,\mathrm{d}A}{\displaystyle\int_A \rho u_n\,\mathrm{d}A}$$
+ 
+where $p_t$ is the local total pressure, $\rho$ is the density, and $u_n$ is the velocity normal to the plane.
+ 
+Normalised loss, for comparing different speeds:
+ 
+$$q_0 = \tfrac{1}{2}\rho_0 U_0^2, \qquad \Lambda_t = \frac{\Delta p_t}{q_0}$$
+ 
+where $\rho_0$ and $U_0$ are the freestream density and speed.
+ 
 Static-pressure difference is a different quantity and is reported separately if used. Fan-face pressure contours are used to look at uneven flow. The maximum-minus-minimum pressure is only a descriptive number, not a standard distortion measure.
-
+ 
 ## Possible later steps
-
+ 
 - A small suction wind tunnel (honeycomb, contraction, test section, diffuser, fan) to test printed inlets with a pitot tube and a pressure sensor, and compare with the CFD.
 - Using public weather data (for example wind speed and temperature at altitude) to set realistic freestream conditions.
 - Manufacturing a scale model in metal. Check wall thickness and tolerance rules first.
-
 ## Credits
-
+ 
 Engine CAD based on the YouTube tutorial linked above. Inlet background: NASA Glenn Research Center, Beginner's Guide to Aeronautics, "Inlets".
+ 
